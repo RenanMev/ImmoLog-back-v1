@@ -30,6 +30,22 @@ export class RegisterUser {
       throw error;
     }
   }
+
+  async validLogin(id){
+    try{
+      const idAsth = id
+      const query = await sql`SELECT id, email, username FROM usuario WHERE id = ${idAsth.id}`
+      if(query){
+        return query
+      } else{
+        console.error("Erro ao fazer login:", error.message);
+        throw error;
+      }
+    } catch (error) {
+      console.error("Erro ao fazer login:", error.message);
+      throw error;
+    }
+  }
   
   async login(email, password) {
     try {

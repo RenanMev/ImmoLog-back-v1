@@ -14,14 +14,10 @@ Content-Type: application/json
 
 
 ###
-POST http://localhost:3333/registerUser
+POST http://localhost:3333/validLogin
 Content-Type: application/json
 
-{
-    "email": "renandzn2fam@gmail.conm",
-    "password": "123",
-    "username": "renandznfam"
-}
+{id: "d5d115ebd627438b8b68199035c07c2c"}
 
 ###
 

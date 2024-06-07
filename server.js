@@ -10,6 +10,20 @@ const immobileRegistration = new RegisterImmobile();
 
 server.register(fastifyCors);
 
+
+server.post("/validLogin", async (request, reply) => {
+  try {
+    const { id } = request.body;
+    const validLogin = await userRegistration.validLogin({ id });
+    reply.send(validLogin);
+  } catch (error) {
+    console.error("Erro ao fazer login do usuário:", error);
+    reply.status(500).send("Login não efetuado");
+  }
+});
+
+
+
 server.post("/registerUser", async (request, reply) => {
   try {
     const { email, senha, username } = request.body;
